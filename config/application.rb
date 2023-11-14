@@ -26,7 +26,7 @@ module AmenitizTest
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
-    config.autoload_lib(ignore: %w(assets tasks))
+    config.autoload_lib(ignore: %w[assets tasks])
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -38,5 +38,16 @@ module AmenitizTest
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.generators do |g|
+      g.stylesheets false
+      g.javascripts false
+      g.test_framework :rspec,
+        :fixtures => true,
+        :view_specs => false,
+        :helper_specs => false,
+        :routing_specs => false,
+        :controller_specs => false,
+        :request_specs => true
+    end 
   end
 end
