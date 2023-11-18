@@ -17,4 +17,8 @@ RSpec.describe Product, type: :model do
     it { should validate_presence_of(:price) }
     it { should validate_presence_of(:product_code) }
   end
+
+  describe 'associations' do
+    it { should have_many(:cart_items) }
+  end
 end

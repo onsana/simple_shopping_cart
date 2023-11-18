@@ -12,4 +12,6 @@
 class Product < ApplicationRecord
   # validations
   validates :product_code, :name, :price, presence: true
+  # associations
+  has_many :cart_items, dependent: :destroy
 end
