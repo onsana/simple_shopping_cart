@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_17_081615) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_19_104215) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,12 +31,21 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_17_081615) do
     t.index ["token"], name: "index_carts_on_token", unique: true
   end
 
+  create_table "discounts", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.jsonb "rule_params"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.string "product_code"
     t.decimal "price", precision: 8, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "discount_id"
   end
 
   add_foreign_key "cart_items", "carts"

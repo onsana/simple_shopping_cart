@@ -45,7 +45,7 @@ class CartItem < ApplicationRecord
   end
 
   def total_price
-    quantity.to_i * product.price.to_f
+    PricingService.call(quantity: quantity.to_i, product: product)
   end
 
   private
