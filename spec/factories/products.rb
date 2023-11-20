@@ -8,6 +8,7 @@
 #  product_code :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  discount_id  :integer
 #
 FactoryBot.define do
   factory :product do

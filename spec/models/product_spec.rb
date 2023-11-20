@@ -8,6 +8,7 @@
 #  product_code :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  discount_id  :integer
 #
 require "rails_helper"
 
@@ -20,5 +21,6 @@ RSpec.describe Product, type: :model do
 
   describe 'associations' do
     it { should have_many(:cart_items) }
+    it { should belong_to(:discount).optional }
   end
 end

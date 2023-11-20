@@ -1,24 +1,35 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Basic Functionality
 
-Things you may want to cover:
+- It has a UI where the user can add products to a cart and compute the total price including discounts
+- It is usable while remaining as simple as possible
+- It is easily extendable
 
-* Ruby version
+## Known Assumptions Made
 
-* System dependencies
+  1. No Checkout Functionality.
+  2. It's just a basic UI without much design.
+  3. Each product can avail of one discount at a time(to simplify the implementation)
+  4. The admin section for adding new products or adding or editing discounts is not implemented. Everything is implemented through seeds.rb
 
-* Configuration
+### Requirements
 
-* Database creation
+- Ruby 3.2.2
 
-* Database initialization
+### Installation
 
-* How to run the test suite
+- Clone the repository
+- Install the gems `bundle install`
+- Compile css `yarn install`
+- Run the `rails db:migrate`
 
-* Services (job queues, cache servers, search engines, etc.)
+### Start the server
 
-* Deployment instructions
+  `bin/dev`
 
-* ...
+### Launch tests
+
+  `rails db:migrate RAILS_ENV=test`
+  `rails db:seed RAILS_ENV=test`
+  `rspec`
